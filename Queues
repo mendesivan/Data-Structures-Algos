@@ -1,0 +1,111 @@
+#
+from IPython.display import Image
+Image(filename= 'C:\DataSci.py\Python\Data\Queue.png')
+#
+
+
+#Notes and Key Definitions
+print("Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition – Time Complexity : O(1) \nDequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. \nIf the queue is empty, then it is said to be an Underflow condition – Time Complexity : O(1) \nFront: Get the front item from queue – Time Complexity : O(1) \nRear: Get the last item from queue – Time Complexity : O(1)")
+
+print('___________________________________________________________________________')
+# Python code to demonstrate queue implementation using list 
+  
+# Initializing a queue 
+queue = [] 
+  
+# Adding elements to the queue 
+queue.append('a') 
+queue.append('b') 
+queue.append('c') 
+  
+print("Initial queue:") 
+print(queue) 
+
+# Removing elements from the queue 
+print("\nElements dequeued from queue") 
+queue.pop(0) #pop first element / Also do not need print, can just dequeue.
+queue.append('d') #added a new item to the queue, and as noted, this is the last item in our queue after 3 pops.
+print(queue.pop(0)) #pop new first element
+print(queue.pop(0)) #pop new first element (until 0 is reached)
+  
+print("\nQueue after removing elements") 
+print(queue) 
+  
+# Uncommenting print(queue.pop(0)) 
+# will raise and IndexError 
+# as the queue is now empty
+
+print('______________________________________________________________________________')
+# Python program to demonstrate queue implementation using collections.dequeue 
+    
+from collections import deque 
+  
+# Initializing a queue 
+q = deque() 
+  
+# Adding elements to a queue 
+q.append('a') 
+q.append('b') 
+q.append('c') 
+  
+print("Initial queue") 
+print(q) 
+  
+#NOTES:
+print("\n*NOTE*:\nQueue in Python can be implemented using deque class from the collections module. \nDeque is preferred over list in the cases where we need quicker append and pop operations from both the ends of container, \nas deque provides an O(1) time complexity for append and pop operations as compared to list which provides O(n) time \ncomplexity. Instead of enqueue and deque, append() and popleft() functions are used.")
+
+# Removing elements from a queue 
+print("\nElements dequeued from the queue") 
+print(q.popleft()) 
+print(q.popleft()) 
+print(q.popleft()) 
+  
+print("\nQueue after removing elements") 
+print(q) 
+  
+# Uncommenting q.popleft() 
+# will raise an IndexError 
+# as queue is now empty 
+
+print("*NOTE*:\nQueue is built-in module of Python which is used to implement a queue. queue.Queue(maxsize) initializes a variable to a maximum size of maxsize. A maxsize of zero ‘0’ means a infinite queue. This Queue follows FIFO rule.\n\nThere are various functions available in this module:\n\nmaxsize – Number of items allowed in the queue.\nempty() – Return True if the queue is empty, False otherwise.\nfull() – Return True if there are maxsize items in the queue. If the queue was initialized with maxsize=0 (the default), then full() never returns True.\nget() – Remove and return an item from the queue. If queue is empty, wait until an item is available.\nget_nowait() – Return an item if one is immediately available, else raise QueueEmpty.\nput(item) – Put an item into the queue. If the queue is full, wait until a free slot is available before adding the item.\nput_nowait(item) – Put an item into the queue without blocking.\nqsize() – Return the number of items in the queue. If no free slot is immediately available, raise QueueFull.")
+
+print('__________________________________________________________________')
+# Python program to demonstrate implementation of queue using queue module 
+
+from queue import Queue 
+  
+# Initializing a queue 
+q = Queue(maxsize = 3) 
+  
+# qsize() give the maxsize  
+# of the Queue  
+print(q.qsize())  
+  
+# Adding of element to queue 
+q.put('a') 
+q.put('b') 
+q.put('c') 
+  
+# Return Boolean for Full  
+# Queue  
+print("\nFull: ", q.full())  
+
+#true if queue items = maxsize
+
+# Removing element from queue 
+print("\nElements dequeued from the queue") 
+print(q.get()) 
+print(q.get()) 
+print(q.get()) 
+  
+# Return Boolean for Empty  
+# Queue  
+print("\nEmpty: ", q.empty()) 
+  
+q.put(1) 
+print("\nEmpty: ", q.empty())  
+print("Full: ", q.full()) 
+  
+# This would result into Infinite  
+# Loop as the Queue is empty.  
+# print(q.get()) 
