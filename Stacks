@@ -1,0 +1,90 @@
+from IPython.display import Image
+Image(filename= 'C:\DataSci.py\Python\Data\stack.png')
+
+#Notes and Key Definitions
+print("Note*:\nA stack is a linear data structure that stores items in a Last-In/First-Out (LIFO) or First-In/Last-Out (FILO) manner. \nIn stack, a new element is added at one end and an element is removed from that end only. The insert and delete operations \nare often called push and pop")
+
+#Notes
+print("NOTE*:\nempty() – Returns whether the stack is empty – Time Complexity : O(1) \nsize() – Returns the size of the stack – Time Complexity : O(1) \ntop() – Returns a reference to the top most element of the stack – Time Complexity : O(1) \npush(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1) \npop() – Deletes the top most element of the stack – Time Complexity : O(1)")
+print("\nStack in Python can be implemented using following ways: \nlist \ncollections.deque \nqueue.LifoQueue")
+
+
+# Python program to demonstrate stack implementation using list 
+   
+stack = [] 
+  
+# append() function to push 
+# element in the stack 
+stack.append('First') 
+stack.append('Second') 
+stack.append('Third') 
+  
+print('Initial stack') 
+print(stack) 
+
+# pop() fucntion to pop element from stack in LIFO order 
+print('\nElements poped from stack:') 
+print(stack.pop()) 
+print(stack.pop()) 
+print(stack.pop()) 
+  
+print('\nStack after elements are poped:') 
+print(stack) 
+___________________________________________________________________
+
+# Python program to demonstrate stack implementation using collections.deque 
+  
+from collections import deque 
+  
+stack = deque() 
+  
+# append() function to push 
+# element in the stack 
+stack.append('First') 
+stack.append('Second') 
+stack.append('Third') 
+  
+print('Initial stack:') 
+print(stack) 
+
+# pop() fucntion to pop element from stack in LIFO order 
+
+print('\nElements poped from stack:') 
+print(stack.pop()) 
+print(stack.pop()) 
+print(stack.pop()) 
+  
+print('\nStack after elements are poped:') 
+print(stack) 
+_________________________________________________________________________________
+
+print("Queue module also has a LIFO Queue, which is basically a Stack. Data is inserted into Queue using put() function and \nget() takes data out from the Queue.\n\nThere are various functions available in this module:\nmaxsize – Number of items allowed in the queue.\nempty() – Return True if the queue is empty, False otherwise.\nfull() – Return True if there are maxsize items in the queue. If the queue was initialized with maxsize=0 (the default), then full() never returns True.\nget() – Remove and return an item from the queue. If queue is empty, wait until an item is available.\nget_nowait() – Return an item if one is immediately available, else raise QueueEmpty.\nput(item) – Put an item into the queue. If the queue is full, wait until a free slot is available before adding the item.\nput_nowait(item) – Put an item into the queue without blocking. \nqsize() – Return the number of items in the queue. If no free slot is immediately available, raise QueueFull.")
+
+# Python program to demonstrate stack implementation using queue module 
+
+from queue import LifoQueue #Last-in-first-out.
+  
+# Initializing a stack 
+stack = LifoQueue(maxsize = 10) #size of stack
+  
+# qsize() show the number of elements in the stack
+
+print(stack.qsize()) #0 before adding to the stack
+   
+# put() function to push element in the stack 
+stack.put('First') 
+stack.put('Second') 
+stack.put('Third') 
+stack.put('Fourth')
+  
+print("Full: ", stack.full())  
+print("Size: ", stack.qsize())  
+  
+# get() fucntion to pop element from stack in LIFO order 
+
+print('\nElements poped from the stack') 
+print(stack.get()) 
+print(stack.get()) 
+print(stack.get()) 
+  
+print("\nEmpty: ", stack.empty()) 
